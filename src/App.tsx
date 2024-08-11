@@ -1,7 +1,14 @@
+import styled from "styled-components";
+
+const Button = styled.button`
+  padding: 24px;
+  font-size: 24px;
+`
+
 const App = () => {
   return (
     <div>
-      <button>Hello World</button>
+      <Button>버튼입니다.</Button>
     </div>
   );
 };
