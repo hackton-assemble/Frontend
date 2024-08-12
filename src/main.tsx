@@ -1,15 +1,8 @@
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme.ts';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Main from './pages/Main.tsx';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Main />,
-  },
-]);
+import { RouterProvider } from 'react-router-dom';
+import router from './router.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <ThemeProvider theme={theme}>
