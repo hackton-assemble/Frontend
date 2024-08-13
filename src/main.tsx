@@ -1,14 +1,30 @@
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme.ts';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
-import Main from './pages/Main.tsx';
+import Header from './components/Layout/Header/Header.tsx';
+
+const Layout = () => {
+  return <>
+    <Header />
+    <Outlet />
+  </>
+}
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Main />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <></>
+      },
+      {
+        path: "/search",
+        element: <></>
+      }
+    ]
   },
 ]);
 
