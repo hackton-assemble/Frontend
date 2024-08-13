@@ -1,11 +1,5 @@
-import DefaultButton from '../components/DefaultButton';
+import React from 'react';
 
-const Main = () => {
-  return (
-    <div>
-      <DefaultButton size={'S'} style={'primary'} />
-    </div>
-  );
-};
-
-export default Main;
+export default function reviewPage() {
+  return <div>Hello World</div>;
+}
