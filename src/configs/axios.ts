@@ -1,11 +1,12 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'https://eolmangyo.duckdns.org/',
   timeout: 1000,
   headers: { 'Content-Type': 'application/json' },
 });
 
+/**
 api.interceptors.response.use(
   (res) => res,
   (err: AxiosError) => {
@@ -15,8 +16,6 @@ api.interceptors.response.use(
 
       if (status === 400) {
         alert('Bad Request');
-      } else if (status === 404) {
-        alert('Not Found');
       } else if (status === 500) {
         alert('Internal Server Error');
       } else {
@@ -33,5 +32,6 @@ api.interceptors.response.use(
     return Promise.reject(err);
   },
 );
+*/
 
 export default api;

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import {
   ButtonGroup,
   Column,
@@ -10,23 +11,22 @@ import {
   PlaceholderText,
   TitleText,
 } from '../components/Sign/In/LoginForm.style';
-import MainHeader from '../components/Layout/Header/MainHeader';
 import LoginFormFields from '../components/Sign/In/LoginFormFields';
 
 const LoginPage = () => {
+  const navigate = useNavigate()
   return (
     <>
       <GlobalStyle />
       <div className="container">
         <LoginTitle>로그인</LoginTitle>
-        <MainHeader />
         <GroupImage src="src/assets/images/orange.svg" alt="Group Image" />
         <LoginFormFields />
         <ButtonGroup>
           <PlaceholderText style={{ color: '#f7662d' }}>
             아이디/비밀번호 찾기
           </PlaceholderText>
-          <PlaceholderText style={{ color: '#f7662d' }}>
+          <PlaceholderText style={{ color: '#f7662d' }} onClick={() => navigate('/signup')}>
             회원가입
           </PlaceholderText>
         </ButtonGroup>

@@ -1,12 +1,13 @@
-import { useRecoilState } from 'recoil';
-import SearchHeader from './SearchHeader';
-import MainHeader from './MainHeader';
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import { isSearchPageState } from '../../../store/isSearchPageState';
+import { useRecoilState } from "recoil";
+import SearchHeader from "./SearchHeader";
+import MainHeader from "./MainHeader";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { isDetailPageState, isSearchPageState } from "../../../store/pageStore";
 
 const Header = () => {
-  const [isSearchPage, setIsSearchPage] = useRecoilState(isSearchPageState);
+  const [isDetailPage, setIsDetailPage] = useRecoilState(isDetailPageState)
+  const [isSearchPage, setIsSearchPage] = useRecoilState(isSearchPageState)
   const location = useLocation();
 
   useEffect(() => {
@@ -17,8 +18,17 @@ const Header = () => {
     }
   }, [location, isSearchPage]);
 
-  if (isSearchPage) return <SearchHeader />;
-  return <MainHeader />;
-};
+  useEffect(() => {
+    if (location.pathname === '/detail') {
+      setIsDetailPage(true)
+    } else {
+      setIsDetailPage(false)
+    }
+  }, [location, isDetailPage]);
+
+  if (isDetailPage) return <SearchHeader />
+  else if (isSearchPage) return <></>
+  else return <MainHeader />
+}
 
 export default Header;
