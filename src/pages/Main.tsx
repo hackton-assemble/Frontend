@@ -1,5 +1,6 @@
 import React from 'react';
+import SignUpPage from './SignUpPage';
 
 export default function reviewPage() {
-  return <div>Hello World</div>;
+  return <SignUpPage />;
 }
