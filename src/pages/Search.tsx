@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import search1 from "../assets/images/search_1.png"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 //import search2 from "../assets/images/search_2.png"
 
 const Container = styled.span`
@@ -62,6 +64,7 @@ const SearchContainer = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 20px; /* 142.857% */
+    outline: none;
   }
 
   & > input::placeholder {
@@ -133,12 +136,16 @@ const NextButton = styled.button`
 `
 
 const Search = () => {
+  const [step, setStep] = useState(0)
+  const navigate = useNavigate()
   return <Container>
     <MainText>
       검색어를 입력해 주세요
     </MainText>
     <SubText>
-      이번 주 평균시세 확인하기!
+      {step === 0 ? "이번 주 평균시세 확인하기!" : <>
+        <span style={{ color: '#F7662D' }}>구포시장</span>에서 과일을 찾아보세요.
+      </>}
     </SubText>
     <SearchContainer>
       <input type="text" placeholder="전통시장 검색하기" />
@@ -157,9 +164,15 @@ const Search = () => {
       우리들의 전통시장. 전통시장 과일들의<br />
       시세를 확인하고 저렴하게 구매하세요!<br />
     </SubText2>
-    <NextButton>
-      다음으로
-    </NextButton>
+    {step === 0 ? <>
+      <NextButton onClick={() => setStep(step + 1)}>
+        다음으로
+      </NextButton>
+    </> : <>
+      <NextButton onClick={() => navigate('/detail')}>
+        검색결과 보기
+      </NextButton>
+    </>}
   </Container>
 }
 

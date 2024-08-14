@@ -18,9 +18,13 @@ const Container = styled.div`
 
   padding: 0 25px 16px 25px;
 
-  & img.logo {
+  & > a {
     width: 91px;
     height: 24px;
+  }
+
+  & img.logo {
+    width: 100%;
   }
 
   & svg {
@@ -54,7 +58,9 @@ const Typo = styled.span`
 const MainHeader = () => {
   return (
     <Container>
-      <img className="logo" src={logo} alt="얼만교" />
+      <Link to={'/'}>
+        <img className="logo" src={logo} alt="얼만교" />
+      </Link>
       <IconContainer>
         <Typo>전통시장 시세를 검색하세요!</Typo>
         <Link to={'/search'}>

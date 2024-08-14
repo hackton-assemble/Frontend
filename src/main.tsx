@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage.tsx';
 import Search from './pages/Search.tsx';
 import Main from './pages/Main.tsx';
 import Review from './pages/Review.tsx';
+import MyPage from './pages/MyPage.tsx';
 
 const Layout = () => {
   return (
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />
+      },
+      {
+        path: "/mypage",
+        element: <MyPage />
       }
     ]
   },

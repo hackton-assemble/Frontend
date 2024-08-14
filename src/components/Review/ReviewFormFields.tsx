@@ -54,58 +54,6 @@ const Star = styled.span<{ selected: boolean }>`
   cursor: pointer;
 `;
 
-const StyledButton = styled.button`
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-  padding: 0 16px;
-  border-radius: 16px;
-  font-family: 'NanumSquareNeo';
-  font-size: 16px;
-  color: #514037;
-  background: transparent;
-  z-index: 1;
-
-  color: #514037;
-  text-align: center;
-`
-
-const DropdownContainer = styled.div`
-  width: 100%;
-  position: absolute;
-  top: 52px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 16px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  border: 1px solid black;
-
-  & > button {
-    width: 100%;
-  }
-`
-
-const StyledInputContainer = styled.input`
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-  padding: 0 16px;
-  border-radius: 16px;
-  font-family: 'NanumSquareNeo';
-  font-size: 16px;
-  color: #514037;
-  background: transparent;
-  z-index: 1;
-`;
-
 const ReviewFormFields = () => {
   const [purchasePrice, setPurchasePrice] = useState('');
   const [rating, setRating] = useState(0);
