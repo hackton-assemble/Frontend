@@ -7,9 +7,8 @@ const GlobalStyle = createGlobalStyle`
 
   .container {
     background: #ffffff;
-    height: 932px;
     position: relative;
-    overflow: hidden;
+    height: fit-content;
   }
 `;
 
@@ -42,7 +41,7 @@ const StyledInput = styled.input`
   outline: none;
   padding: 0 16px;
   border-radius: 16px;
-  font-family: 'NanumSquare Neo';
+  font-family: 'NanumSquareNeo';
   font-size: 16px;
   color: #514037;
   background: transparent;
@@ -54,10 +53,46 @@ const StyledInput = styled.input`
   }
 `;
 
+const StyledButton = styled.button`
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  border-radius: 16px;
+  font-family: 'NanumSquareNeo';
+  font-size: 16px;
+  color: #514037;
+  background: transparent;
+  z-index: 1;
+
+  color: #514037;
+  text-align: center;
+`
+
+const DropdownContainer = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 48px;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid black;
+
+  & > button {
+    width: 100%;
+  }
+`
+
 const PlaceholderText = styled.div`
   color: #514037;
   text-align: center;
-  font-family: 'NanumSquare Neo';
+  font-family: 'NanumSquareNeo';
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -80,7 +115,7 @@ const ButtonText = styled(PlaceholderText)`
 const ContentText = styled.div`
   color: #514037;
   text-align: center;
-  font-family: 'NanumSquare Neo';
+  font-family: 'NanumSquareNeo';
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -93,7 +128,7 @@ const ContentText = styled.div`
 const LoginTitle = styled.div`
   color: #271c11;
   text-align: center;
-  font-family: 'NanumSquare Neo';
+  font-family: 'NanumSquareNeo';
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -165,7 +200,7 @@ const GroupImage = styled.img`
 const TitleText = styled.div`
   color: #271c11;
   text-align: center;
-  font-family: 'NanumSquare Neo';
+  font-family: 'NanumSquareNeo';
   font-size: 20px;
   font-style: normal;
   font-weight: 800;

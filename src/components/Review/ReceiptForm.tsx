@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { InputContainer, StyledInput } from '../Sign/In/LoginForm.style';
 
@@ -39,8 +39,11 @@ const AdditionalText = styled.div`
   margin-top: 10px;
 `;
 
-const ReceiptForm = () => {
-  const [imageUploaded, setImageUploaded] = useState(false);
+const ReceiptForm = ({
+  setImageUploaded
+}: {
+  setImageUploaded: React.Dispatch<React.SetStateAction<boolean>>
+}) => {
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -50,11 +53,6 @@ const ReceiptForm = () => {
       setImageUploaded(false);
     }
   };
-
-  // imageUploaded 값이 변경될 때마다 로그 출력
-  useEffect(() => {
-    console.log(imageUploaded);
-  }, [imageUploaded]);
 
   return (
     <ImageUploadContainer style={{ top: '158px' }}>

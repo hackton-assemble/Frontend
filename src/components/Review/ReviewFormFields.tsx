@@ -25,7 +25,7 @@ const ImageIcon = styled.img`
 `;
 
 const UploadText = styled.div`
-  font-family: 'NanumSquareNeo-ExtraBold', sans-serif;
+  font-family: 'NanumSquareNeo', sans-serif;
   color: white;
   text-align: center;
   margin-top: 20px;
@@ -40,7 +40,7 @@ const StarContainer = styled.div`
 const StarLabel = styled.span`
   margin: 2px 10px;
   color: #514037;
-  font-family: 'NanumSquareNeo-ExtraBold', sans-serif;
+  font-family: 'NanumSquareNeo', sans-serif;
   font-size: 16px;
   text-align: center;
   margin-top: 10px;
@@ -52,6 +52,58 @@ const Star = styled.span<{ selected: boolean }>`
   font-size: 30px;
   color: ${({ selected }) => (selected ? '#FFD700' : '#ccc')};
   cursor: pointer;
+`;
+
+const StyledButton = styled.button`
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  border-radius: 16px;
+  font-family: 'NanumSquareNeo';
+  font-size: 16px;
+  color: #514037;
+  background: transparent;
+  z-index: 1;
+
+  color: #514037;
+  text-align: center;
+`
+
+const DropdownContainer = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid black;
+
+  & > button {
+    width: 100%;
+  }
+`
+
+const StyledInputContainer = styled.input`
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  border-radius: 16px;
+  font-family: 'NanumSquareNeo';
+  font-size: 16px;
+  color: #514037;
+  background: transparent;
+  z-index: 1;
 `;
 
 const ReviewFormFields = () => {
@@ -125,6 +177,16 @@ const ReviewFormFields = () => {
         <StyledInput
           type="text"
           placeholder="한줄평 추가하기"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+        />
+      </InputContainer>
+
+      <InputContainer style={{ top: '460px' }}>
+        <InputBorder />
+        <StyledInput
+          type="text"
+          placeholder=""
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   InputContainer,
   InputBorder,
@@ -6,15 +6,42 @@ import {
   ButtonContainer,
   ButtonText,
 } from './LoginForm.style';
+import { AxiosError } from 'axios';
+import { useSetRecoilState } from 'recoil';
+import { userInfoState } from '../../../store/authStore';
+import api from '../../../configs/axios';
+import { useNavigate } from 'react-router-dom';
 
 const LoginFormFields = () => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    //추후 서버 요청 코드
-    console.log('ID:', id);
-    console.log('Password:', password);
+  const navigate = useNavigate()
+
+  const setUserInfo = useSetRecoilState(userInfoState);
+
+  const handleLogin = async () => {
+    await api.post('/api/v1/user/auth/signin', {
+      loginId: id,
+      loginPassword: password
+    }).then(res => {
+      alert(`${res.data['userNickname']}님 환영합니다!`);
+      setUserInfo({
+        userNickname: res.data['userNickname'] as string,
+        uuid: res.data['uuid'] as string,
+        accessToken: res.data['accessToken'] as string,
+      })
+      navigate('/')
+    }).catch(err => {
+      if (err instanceof AxiosError) {
+        const status = err.response?.status;
+        if (status === 404) {
+          alert('로그인 정보가 일치하지 않습니다.')
+        }
+      } else {
+        alert('일시적인 오류가 발생했습니다.')
+      }
+    })
   };
 
   return (
