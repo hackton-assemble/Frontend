@@ -4,27 +4,30 @@ import { theme } from './styles/theme.ts';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import Header from './components/Layout/Header/Header.tsx';
+import ReviewFormFields from './components/Review/ReviewFormFields.tsx';
 
 const Layout = () => {
-  return <>
-    <Header />
-    <Outlet />
-  </>
-}
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  );
+};
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
       {
-        path: "/",
-        element: <></>
+        path: '/',
+        element: <ReviewFormFields />,
       },
       {
-        path: "/search",
-        element: <></>
-      }
-    ]
+        path: '/search',
+        element: <></>,
+      },
+    ],
   },
 ]);
 
