@@ -7,6 +7,8 @@ import Header from './components/Layout/Header/Header.tsx';
 import SignUpPage from './pages/SignUpPage.tsx';
 import LoginPage from './pages/LoginPage.tsx';
 import Search from './pages/Search.tsx';
+import Main from './pages/Main.tsx';
+import Review from './pages/Review.tsx';
 
 const Layout = () => {
   return (
@@ -23,7 +25,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <></>,
+        element: <Main />,
+      },
+      {
+        path: '/review',
+        element: <Review />
       },
       {
         path: "/detail",

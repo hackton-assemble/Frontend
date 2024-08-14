@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CustomCard from '../components/Card/CustomCard';
 import ReviewCard from '../components/Card/ReviewCard';

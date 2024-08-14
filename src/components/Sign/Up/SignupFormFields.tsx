@@ -33,7 +33,8 @@ const SignupFormFields = () => {
       alert(`${nickname}님 환영합니다!`);
       setUserInfo({
         userNickname: nickname,
-        uuid: res.data['uuid'] as string
+        uuid: res.data['uuid'] as string,
+        accessToken: res.data['accessToken'] as string
       })
       navigate('/')
     }).catch(err => {

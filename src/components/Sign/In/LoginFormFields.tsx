@@ -28,7 +28,8 @@ const LoginFormFields = () => {
       alert(`${res.data['userNickname']}님 환영합니다!`);
       setUserInfo({
         userNickname: res.data['userNickname'] as string,
-        uuid: res.data['uuid'] as string
+        uuid: res.data['uuid'] as string,
+        accessToken: res.data['accessToken'] as string,
       })
       navigate('/')
     }).catch(err => {
