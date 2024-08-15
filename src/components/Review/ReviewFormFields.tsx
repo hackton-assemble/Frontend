@@ -5,6 +5,7 @@ import {
   InputContainer,
   StyledInput,
 } from '../Sign/In/LoginForm.style';
+import { useNavigate } from 'react-router-dom';
 
 const ImageUploadContainer = styled(InputContainer)`
   height: 150px;
@@ -54,11 +55,39 @@ const Star = styled.span<{ selected: boolean }>`
   cursor: pointer;
 `;
 
+const Button = styled.button`
+  width: 362px;
+  height: 44px;
+  border-radius: 44px;
+  color: #FFF;
+  font-feature-settings: 'liga' off, 'clig' off;
+  position: absolute;
+  background: #F7662D;
+
+  z-index: 300000;
+
+  /* Body/S */
+  font-family: "NanumSquareNeo";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 35px;
+`
+
 const ReviewFormFields = () => {
   const [purchasePrice, setPurchasePrice] = useState('');
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
   const [imageUploaded, setImageUploaded] = useState(false); // 이미지 업로드 상태 추가
+  const [market, setMarket] = useState('')
+  const [fruit, setFruit] = useState('')
+
+  const navigate = useNavigate()
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -134,11 +163,36 @@ const ReviewFormFields = () => {
         <InputBorder />
         <StyledInput
           type="text"
-          placeholder=""
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
+          placeholder="시장 검색하기"
+          value={market}
+          onChange={(e) => setMarket(e.target.value)}
         />
       </InputContainer>
+
+      <InputContainer style={{ top: '532px' }}>
+        <InputBorder />
+        <StyledInput
+          type="text"
+          placeholder="과일 검색하기"
+          value={fruit}
+          onChange={(e) => setFruit(e.target.value)}
+        />
+      </InputContainer>
+      <InputContainer style={{ top: '604px' }}>
+        <InputBorder />
+        <StyledInput
+          type="text"
+          placeholder="과일 검색하기"
+          value={fruit}
+          onChange={(e) => setFruit(e.target.value)}
+        />
+      </InputContainer>
+      <Button onClick={() => {
+        alert('리뷰가 등록되었습니다.')
+        navigate('/')
+      }}
+        style={{ top: '676px' }}
+      >리뷰 등록하기</Button>
     </>
   );
 };

@@ -10,6 +10,7 @@ import Search from './pages/Search.tsx';
 import Main from './pages/Main.tsx';
 import Review from './pages/Review.tsx';
 import MyPage from './pages/MyPage.tsx';
+import Detail from './pages/Detail.tsx';
 
 const Layout = () => {
   return (
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/detail",
-        element: <></>
+        element: <Detail />
       },
       {
         path: "/search",

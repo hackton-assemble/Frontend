@@ -11,7 +11,7 @@ const Review = () => {
   const navigate = useNavigate()
 
   useLayoutEffect(() => {
-    if (userInfo !== null) {
+    if (userInfo === null) {
       navigate('/login')
     }
   }, [userInfo])
